@@ -1,0 +1,17 @@
+{
+  "name": "basic-backend-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon src/index.js"
+  },
+  "author": "yash",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "http-status-codes": "^2.3.0",
+    "nodemon": "^3.0.3"
+  }
+}
