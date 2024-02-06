@@ -17,3 +17,8 @@ Lets take a look inside the src folder
 - `services` -> contains the business logic and interact with respositories for data from the database
 
 - `utils` -> contains helper methods, error classes etc.
+
+
+Adding Sequelize cli
+    cd src
+    npx sequelize init
