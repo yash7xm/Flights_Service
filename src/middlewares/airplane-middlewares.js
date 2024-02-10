@@ -1,16 +1,19 @@
-const {StatusCodes} = require("http-status-codes");
-const {ErrorResponse} = require("../utils/common");
+const { StatusCodes } = require("http-status-codes");
+const { ErrorResponse } = require("../utils/common");
+const AppError = require("../utils/errors/app-error");
 
 function validateCreateRequest(req, res, next) {
-    if(!req.body.modelNumber) {
-        ErrorResponse.message = "Something went wrong while creating an airplane";
-        ErrorResponse.error = {explanation: "model number not found in the incomint request"}
-        return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
-    }
-
-    next();
+  if (!req.body.modelNumber) {
+    ErrorResponse.message = "Something went wrong while creating an airplane";
+    ErrorResponse.error = new AppError(
+      ["Model number not found in the incomint request"],
+      StatusCodes.BAD_REQUEST
+    );
+    return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+  }
+  next();
 }
 
 module.exports = {
-    validateCreateRequest
-}
+  validateCreateRequest,
+};
