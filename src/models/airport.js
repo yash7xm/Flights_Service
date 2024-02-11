@@ -10,10 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.City, {
-        foreignKey: 'cityId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-      })
+        foreignKey: "cityId",
+      });
     }
   }
   Airport.init(
@@ -44,3 +42,9 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Airport;
 };
+
+
+/**
+ * Query to check if constraint has been applied
+ * select * from INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'airports' AND CONSTRAINT_SCHEMA = 'flights';
+ */
