@@ -16,7 +16,7 @@ async function createAirport(req, res) {
       address: req.body.address,
       cityId: req.body.cityId,
     });
-    SuccessResponse.data = airplane;
+    SuccessResponse.data = airport;
     return res.status(StatusCodes.CREATED).json(SuccessResponse);
   } catch (error) {
     ErrorResponse.error = error;
@@ -61,7 +61,7 @@ async function getAirport(req, res) {
  * req-body {}
  */
 
-async function destroyAirports(req, res) {
+async function destroyAirport(req, res) {
   try {
     const airport = await AirportService.destroyAirport(req.params.id);
     SuccessResponse.data = airport;
@@ -98,6 +98,6 @@ module.exports = {
   createAirport,
   getAirports,
   getAirport,
-  destroyAirports,
+  destroyAirport,
   updateAirport,
 };
